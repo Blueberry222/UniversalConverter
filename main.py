@@ -2,22 +2,22 @@
 # Convert ideas:
 #  WEBP to PNG [x]
 #  PDF to PNG [x]
-#  WEBM to MP4,
-#  WEBP to GIF,
-#  MP4 to GIF,
+#  WEBP to GIF [x]
+#  MP4 to GIF [x]
 # A GUI and upload function would be nice.
 
 import aspose.words as aw
 from PIL import Image
+from moviepy.editor import VideoFileClip  # pip install moviepy
 
-fileToConvert = 'D:\Pictures\\JasperReportsIReport.pdf'
+fileToConvert = 'D:\Downloads\\Young Kitsuragi.jpg'
 
 
 def toPNG(file):
     if file.endswith(".webp") or file.endswith(".jpeg") or file.endswith(".jpg") or file.endswith(".tiff"):
         filename = file.split(".")
-        img = Image.open(file)
         new_name = filename[0] + "_converted.png"
+        img = Image.open(file)
         converted_img = img.convert("RGB")
         converted_img.save(new_name)
 
@@ -30,7 +30,13 @@ def toPNG(file):
             extractedPage.save(new_name)
 
 
-# def toMP4(file):
+def toGIF(file):
+    if file.endswith(".webm") or file.endswith(".mp4"):
+        toBeGif = VideoFileClip(file)
+        filename = file.split(".")
+        new_name = filename[0] + "_converted.gif"
+        toBeGif.write_gif(new_name)
+        toBeGif.close()
 
 
 toPNG(fileToConvert)
