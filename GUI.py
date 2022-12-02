@@ -1,5 +1,5 @@
 from tkinter import *
-from tkinter import ttk
+from tkinter import ttk, messagebox
 from tkinter import filedialog
 from converter import *
 
@@ -17,13 +17,14 @@ def convertFile():
         toGIF(file_path)
 
     else:
-        raise Exception("Tipo de arquivo inválido!")
+        messagebox.showerror('Erro', '"Nenhum arquivo selecionado / extensão inválida."')
 
 
 class MainGui:
     def __init__(self, root):
 
         mainframe = ttk.Frame(root)
+        root.resizable(False, False)
         root.title("Universal Converter")
         mainframe.grid(column=0, row=0, sticky=W)
         root.columnconfigure(0, weight=1)
@@ -32,7 +33,6 @@ class MainGui:
         ttk.Label(mainframe, text=" Universal Converter ", font="Cambria 16", borderwidth=2, relief="solid", anchor="center").grid(column=1, row=0, sticky=EW)
         ttk.Button(mainframe, text="Convert to PNG", command=lambda: convertFile()).grid(column=1, row=1, sticky=EW)
         #create progress bar
-        #create error message on invalid file
         #create text sidebar explaning the software
 
         # walks through all the widgets contained within our content frame and adds a bit of padding around each
