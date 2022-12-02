@@ -2,9 +2,6 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
 from converter import *
-import tkMessageBox
-
-tkMessageBox.showerror('error title', 'error message')
 
 
 def convertFile():
