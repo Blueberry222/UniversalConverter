@@ -2,39 +2,45 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
 from converter import *
+import tkMessageBox
+
+tkMessageBox.showerror('error title', 'error message')
 
 
-# https://tkdocs.com/tutorial/concepts.html
-def open_file():
+def convertFile():
     file_path = filedialog.askopenfilename()
-    if file_path is not None:
-        pass
 
-    return file_path
+    if Path(file_path).suffix == '.webp' or Path(file_path).suffix == '.jpeg' or Path(file_path).suffix == '.jpg' or Path(file_path).suffix == '.tiff':
+        ImageToPNG(file_path)
+
+    elif Path(file_path).suffix == '.pdf':
+        pdfToPNG(file_path)
+
+    elif Path(file_path).suffix == '.webm' or Path(file_path).suffix == '.mp4':
+        toGIF(file_path)
+
+    else:
+        raise Exception("Tipo de arquivo inválido!")
 
 
 class MainGui:
     def __init__(self, root):
 
+        mainframe = ttk.Frame(root)
         root.title("Universal Converter")
-
-        mainframe = ttk.Frame(root, padding="3 3 12 12")
-        mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
+        mainframe.grid(column=0, row=0, sticky=W)
         root.columnconfigure(0, weight=1)
         root.rowconfigure(0, weight=1)
 
-        ttk.Label(mainframe, text="Upload file:").grid(column=1, row=1, sticky=W)
-        # Insert upload here
+        ttk.Label(mainframe, text=" Universal Converter ", font="Cambria 16", borderwidth=2, relief="solid", anchor="center").grid(column=1, row=0, sticky=EW)
+        ttk.Button(mainframe, text="Convert to PNG", command=lambda: convertFile()).grid(column=1, row=1, sticky=EW)
+        #create progress bar
+        #create error message on invalid file
+        #create text sidebar explaning the software
 
-        # ttk.Button(mainframe, text="Select file", command=open_file).grid(column=2, row=1, sticky=W)
-        ttk.Button(mainframe, text="Convert to PNG", command=lambda: toPNG(open_file())).grid(column=2, row=3, sticky=W)
-        ttk.Button(mainframe, text="Convert to GIF", command=lambda: toGIF(open_file())).grid(column=4, row=3, sticky=W)
-
-
-        # walks through all of the widgets contained within our content frame and adds a little bit of padding around each
+        # walks through all the widgets contained within our content frame and adds a bit of padding around each
         for child in mainframe.winfo_children():
-            child.grid_configure(padx=5, pady=5)
-
+            child.grid_configure(padx=3, pady=3)
 
 
 root = Tk()
