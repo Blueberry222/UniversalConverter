@@ -6,6 +6,7 @@
 #  MP4 to GIF [x]
 # A GUI and upload function would be nice.
 
+from pathlib import Path
 import aspose.words as aw
 from PIL import Image
 from moviepy.editor import VideoFileClip  # pip install moviepy
@@ -14,14 +15,15 @@ fileToConvert = 'D:\Downloads\\Young Kitsuragi.jpg'
 
 
 def toPNG(file):
-    if file.endswith(".webp") or file.endswith(".jpeg") or file.endswith(".jpg") or file.endswith(".tiff"):
+    # or file.endswith(".jpeg") or file.endswith(".jpg") or file.endswith(".tiff")
+    if Path(file).suffix == '.webp' or Path(file).suffix == '.jpeg' or Path(file).suffix == '.jpg' or Path(file).suffix == '.tiff':
         filename = file.split(".")
         new_name = filename[0] + "_converted.png"
         img = Image.open(file)
         converted_img = img.convert("RGB")
         converted_img.save(new_name)
 
-    if file.endswith(".pdf"):
+    if Path(file).suffix == '.pdf':
         filename = file.split(".")
         pdf = aw.Document(file)
         for page in range(0, pdf.page_count):
@@ -31,7 +33,7 @@ def toPNG(file):
 
 
 def toGIF(file):
-    if file.endswith(".webm") or file.endswith(".mp4"):
+    if Path(file).suffix == '.webm' or Path(file).suffix == '.mp4':
         toBeGif = VideoFileClip(file)
         filename = file.split(".")
         new_name = filename[0] + "_converted.gif"
@@ -40,3 +42,4 @@ def toGIF(file):
 
 
 toPNG(fileToConvert)
+
