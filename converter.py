@@ -1,4 +1,4 @@
-import aspose.words as aw
+from pdf2jpg import pdf2jpg
 from PIL import Image
 from moviepy.editor import VideoFileClip
 
@@ -12,12 +12,9 @@ def ImageToPNG(file):
 
 
 def pdfToPNG(file):
-    filename = file.split(".")
-    pdf = aw.Document(file)
-    for page in range(0, pdf.page_count):
-        extractedPage = pdf.extract_pages(page, 1)
-        new_name = filename[0] + f"converted_{page + 1}.png"
-        extractedPage.save(new_name)
+    filename = file.rsplit("/", 1) # Splits string on last occurrence of delimiter slash bar 
+    outputpath = filename[0]
+    result = pdf2jpg.convert_pdf2jpg(file, outputpath, pages="ALL")
 
 
 def toGIF(file):
