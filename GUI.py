@@ -9,11 +9,8 @@ from converter import *
 def convertFile():
     file_path = filedialog.askopenfilename()
 
-    if Path(file_path).suffix == '.webp' or Path(file_path).suffix == '.jpeg' or Path(file_path).suffix == '.jpg' or Path(file_path).suffix == '.tiff':
+    if Path(file_path).suffix == ".jfif" or Path(file_path).suffix == '.webp' or Path(file_path).suffix == '.jpeg' or Path(file_path).suffix == '.jpg' or Path(file_path).suffix == '.tiff':
         ImageToPNG(file_path)
-
-    elif Path(file_path).suffix == '.pdf':
-        pdfToPNG(file_path)
 
     elif Path(file_path).suffix == '.webm' or Path(file_path).suffix == '.mp4':
         toGIF(file_path)

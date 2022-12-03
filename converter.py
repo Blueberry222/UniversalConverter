@@ -1,6 +1,5 @@
-from pdf2jpg import pdf2jpg
 from PIL import Image
-from moviepy.editor import VideoFileClip
+from moviepy.video.io.VideoFileClip import VideoFileClip
 
 
 def ImageToPNG(file):
@@ -9,12 +8,6 @@ def ImageToPNG(file):
     img = Image.open(file)
     converted_img = img.convert("RGB")
     converted_img.save(new_name)
-
-
-def pdfToPNG(file):
-    filename = file.rsplit("/", 1) # Splits string on last occurrence of delimiter slash bar 
-    outputpath = filename[0]
-    result = pdf2jpg.convert_pdf2jpg(file, outputpath, pages="ALL")
 
 
 def toGIF(file):
