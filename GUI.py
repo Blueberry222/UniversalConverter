@@ -1,5 +1,5 @@
 from tkinter import *
-from tkinter import ttk, messagebox, font
+from tkinter import ttk, messagebox
 from tkinter import filedialog
 from tkinter.ttk import Style
 from pathlib import Path
@@ -25,7 +25,7 @@ def helpButton():
                                 "\n"
                                 "\n"
                                 "You can convert the following files:\n"
-                                "WEBP, JPEG, JPG, PDF and TIFF to PNG\n"
+                                "WEBP, JPEG, JPG, JFIF and TIFF to PNG\n"
                                 "WEB and MP4 to GIF\n"
                                 "\nThank you for using my little software!\n")
 
