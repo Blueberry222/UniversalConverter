@@ -1,17 +1,6 @@
-# This project involves using multiple libraries to convert my most frequent needed files.
-# Convert ideas:
-#  WEBP to PNG [x]
-#  PDF to PNG [x]
-#  WEBP to GIF [x]
-#  MP4 to GIF [x]
-# A GUI and upload function would be nice.
-
-from pathlib import Path
 import aspose.words as aw
 from PIL import Image
-from moviepy.editor import VideoFileClip  # pip install moviepy
-
-fileToConvert = 'D:\Downloads\\Young Kitsuragi.jpg'
+from moviepy.editor import VideoFileClip
 
 
 def ImageToPNG(file):

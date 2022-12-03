@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk, messagebox, font
 from tkinter import filedialog
 from tkinter.ttk import Style
-
+from pathlib import Path
 from converter import *
 
 
@@ -25,7 +25,11 @@ def convertFile():
 def helpButton():
     messagebox.showinfo("Help", "Upon clicking the option: 'Convert File' and selecting your file, it will automatically be converted to either a PNG image or a GIF file; "
                                 "being save in the same place as the original file with _converted appended to it's name."
-                                "\n  "
+                                "\n"
+                                "\n"
+                                "You can convert the following files:\n"
+                                "WEBP, JPEG, JPG, PDF and TIFF to PNG\n"
+                                "WEB and MP4 to GIF\n"
                                 "\nThank you for using my little software!\n")
 
 
@@ -45,8 +49,6 @@ class MainGui:
         ttk.Label(mainframe, text=" Universal Converter ", font="Cambria 16 bold", borderwidth=2, relief="solid", anchor="center").grid(column=1, row=0, sticky=EW)
         ttk.Button(mainframe, text="Convert File", command=lambda: convertFile()).grid(column=1, row=1, sticky=EW)
         ttk.Button(mainframe, text="?", style="TButton", width=2, command=lambda: helpButton()).grid(column=1, row=2, sticky=E)
-
-        # create progress bar
 
         # walks through all the widgets contained within our content frame and adds a bit of padding around each
         for child in mainframe.winfo_children():
