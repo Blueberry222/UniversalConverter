@@ -9,14 +9,16 @@ from converter import *
 def convertFile():
     file_path = filedialog.askopenfilename()
 
-    if Path(file_path).suffix == ".jfif" or Path(file_path).suffix == '.webp' or Path(file_path).suffix == '.jpeg' or Path(file_path).suffix == '.jpg' or Path(file_path).suffix == '.tiff':
-        ImageToPNG(file_path)
+    if Path(file_path).suffix == ".jfif" or Path(file_path).suffix == '.jpeg' or Path(file_path).suffix == '.jpg' or Path(file_path).suffix == '.tiff':
+        toPNG(file_path)
 
     elif Path(file_path).suffix == '.webm' or Path(file_path).suffix == '.mp4':
         toGIF(file_path)
 
+    elif Path(file_path).suffix == '.webp':
+        webpConversion(file_path)
     else:
-        messagebox.showerror('Erro', '"Nenhum arquivo selecionado / extensão inválida."')
+        messagebox.showerror('Error', '"No file selected / invalid file extension."')
 
 
 def helpButton():
@@ -26,7 +28,7 @@ def helpButton():
                                 "\n"
                                 "You can convert the following files:\n"
                                 "WEBP, JPEG, JPG, JFIF and TIFF to PNG\n"
-                                "WEB and MP4 to GIF\n"
+                                "Animated WEBP and MP4 to GIF\n"
                                 "\nThank you for using my little software!\n")
 
 
