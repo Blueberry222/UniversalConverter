@@ -1,8 +1,10 @@
 from tkinter import *
-from tkinter import ttk, messagebox
-from tkinter import filedialog
+from tkinter import ttk, messagebox, filedialog
 from tkinter.ttk import Style
 from pathlib import Path
+
+from PIL import ImageTk
+
 from converter import *
 
 
@@ -31,10 +33,17 @@ def helpButton():
                                 "\n"
                                 "\n"
                                 "You can convert the following files:\n"
-                                "WEBP, JPEG, JPG, JFIF and TIFF to PNG"
+                                "WEBP, JPEG, JPG, JFIF and TIFF to PNG\n"
                                 "PNG, JPEG, JPG, JFIF and TIFF to WEBP \n"
                                 "Animated WEBP and MP4 to GIF\n"
                                 "\nThank you for using my little software!\n")
+
+
+def pixButton():
+    messagebox.showinfo("Donation", "If you want to help me in paying the bills, contribute with any value by sending me a donation! \n\n"
+                                    "PIX Key: augusto-vial@hotmail.com\n"
+                                    "\n"
+                                    "Thank you so much!! <3")
 
 
 class MainGui:
@@ -52,6 +61,7 @@ class MainGui:
 
         ttk.Label(mainframe, text=" Universal Converter ", font="Cambria 16 bold", borderwidth=2, relief="solid", anchor="center").grid(column=1, row=0, sticky=EW)
         ttk.Button(mainframe, text="Convert File", command=lambda: convertFile()).grid(column=1, row=1, sticky=EW)
+        ttk.Button(mainframe, text="$", style="TButton", width=2, command=lambda: pixButton()).grid(column=1, row=2, sticky=W)
         ttk.Button(mainframe, text="?", style="TButton", width=2, command=lambda: helpButton()).grid(column=1, row=2, sticky=E)
 
         # walks through all the widgets contained within our content frame and adds a bit of padding around each.
