@@ -14,7 +14,7 @@ pip install moviepy
 pip install tk
 ```
 
-And, via python, run the GUI.py file!
+And, via python, run the GUI.py file! 
 
 If it's not working, email me about it and I can send you a simple EXE file of this software; or you can do one yourself with PyInstaller!
 
