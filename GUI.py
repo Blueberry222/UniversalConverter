@@ -54,7 +54,7 @@ class MainGui:
         ttk.Button(mainframe, text="Convert File", command=lambda: convertFile()).grid(column=1, row=1, sticky=EW)
         ttk.Button(mainframe, text="?", style="TButton", width=2, command=lambda: helpButton()).grid(column=1, row=2, sticky=E)
 
-        # walks through all the widgets contained within our content frame and adds a bit of padding around each
+        # walks through all the widgets contained within our content frame and adds a bit of padding around each.
         for child in mainframe.winfo_children():
             child.grid_configure(padx=3, pady=3)
 
