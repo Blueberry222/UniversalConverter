@@ -27,7 +27,7 @@ def toGIF(file):
 
 
 def webpConversionToPNG(file):
-    # Due to the static or animated nature WEBP files, it needed a different function for it to work properly.
+    # Due to the static or animated nature WEBP files, it needed a different function for it to work properly
     MediaFile = Image.open(file)
 
     Index = 0
