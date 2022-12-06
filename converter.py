@@ -6,7 +6,15 @@ def toPNG(file):
     filename = file.split(".")
     new_name = filename[0] + "_converted.png"
     img = Image.open(file)
-    converted_img = img.convert("RGB")
+    converted_img = img.convert()
+    converted_img.save(new_name)
+
+
+def imageToWEBP(file):
+    filename = file.split(".")
+    new_name = filename[0] + "_converted.webp"
+    img = Image.open(file)
+    converted_img = img.convert()
     converted_img.save(new_name)
 
 
@@ -18,7 +26,8 @@ def toGIF(file):
     toBeGif.close()
 
 
-def webpConversion(file):
+def webpConversionToPNG(file):
+    # Due to the static or animated nature WEBP files, it needed a different function for it to work properly.
     MediaFile = Image.open(file)
 
     Index = 0

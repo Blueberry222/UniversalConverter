@@ -16,7 +16,11 @@ def convertFile():
         toGIF(file_path)
 
     elif Path(file_path).suffix == '.webp':
-        webpConversion(file_path)
+        webpConversionToPNG(file_path)
+
+    elif Path(file_path).suffix == '.png':
+        imageToWEBP(file_path)
+
     else:
         messagebox.showerror('Error', '"No file selected / invalid file extension."')
 
@@ -27,7 +31,8 @@ def helpButton():
                                 "\n"
                                 "\n"
                                 "You can convert the following files:\n"
-                                "WEBP, JPEG, JPG, JFIF and TIFF to PNG\n"
+                                "WEBP, JPEG, JPG, JFIF and TIFF to PNG"
+                                "PNG, JPEG, JPG, JFIF and TIFF to WEBP \n"
                                 "Animated WEBP and MP4 to GIF\n"
                                 "\nThank you for using my little software!\n")
 
