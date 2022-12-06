@@ -1,4 +1,4 @@
-# UniversalConverter
+# UniversalConverter 🔄💽
 
 Simple software for converting various types of images and media files to the PNG and GIF formats, it even has a simple GUI!  
 
