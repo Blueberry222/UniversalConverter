@@ -2,9 +2,6 @@ from tkinter import *
 from tkinter import ttk, messagebox, filedialog
 from tkinter.ttk import Style
 from pathlib import Path
-
-from PIL import ImageTk
-
 from converter import *
 
 
@@ -72,4 +69,3 @@ class MainGui:
 root = Tk()
 MainGui(root)
 root.mainloop()
-
